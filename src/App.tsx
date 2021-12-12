@@ -1,17 +1,6 @@
 import React,{useState, useEffect} from 'react';
 import './App.css';
 
-
-/**
- * Challenge:
- * 
- * When the timer reaches 0, count the number of words the user typed in 
- * and display it in the "Word count" section
- * 
- * After the game ends, make it so the user can click the Start button again
- * to play a second time
- */
-
 function App() {
 
   const INITIAL_COUNT = 5
