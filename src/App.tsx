@@ -13,8 +13,11 @@ import './App.css';
  */
 
 function App() {
+
+  const INITIAL_COUNT = 5
+
   const [text, setText] = useState<string>("")
-  const [countdown, setCountdown] = useState<number>(5)
+  const [countdown, setCountdown] = useState<number>(INITIAL_COUNT)
   const [isTimeRunning, setIsTimeRunning] = useState<boolean>(false)
   const [wordCount, setWordCount] = useState<number>(0)
 
@@ -31,7 +34,7 @@ function App() {
   const startGame = () => {
     setIsTimeRunning(true)
     if(countdown === 0){
-      setCountdown(5)
+      setCountdown(INITIAL_COUNT)
       setWordCount(0)
       setText("")
     }
@@ -57,7 +60,11 @@ function App() {
   return (
     <main>
       <h1>How fast can you type?</h1>
-      <textarea value={text} onChange={handleOnChange}/>
+      <textarea 
+        value={text} 
+        onChange={handleOnChange}
+        disabled={!isTimeRunning}
+      />
       <h4>Time remaining: {countdown}</h4>
       <button onClick={() => startGame()}>Start Game</button>
       <h1 onClick={() => calculateWordCount()}>Word Count: {wordCount}</h1>
