@@ -18,11 +18,11 @@ import './App.css';
 function App() {
   return (
     <main>
-      <h1>Speed Typing Game</h1>
-      <textarea name="" id="" cols="30" rows="10"/>
-      <h4>[Remaining Time]</h4>
+      <h1>How fast can you type?</h1>
+      <textarea/>
+      <h4>Time remaining: []</h4>
       <button>Start Game</button>
-      <h1>Number of Words</h1>
+      <h1>Word Count: ??</h1>
     </main>
   )
 }
