@@ -37,6 +37,12 @@ function App() {
     }
   }
 
+  const endGame = () => {
+    setIsTimeRunning(false)
+    const totalWords = calculateWordCount()
+    setWordCount(() => totalWords)
+  }
+
   useEffect(() => {
     if(isTimeRunning && countdown > 0){
       setTimeout(() => {
@@ -44,9 +50,7 @@ function App() {
       }, 1000)
     }
     else if(countdown === 0){
-      setIsTimeRunning(false)
-      const totalWords = calculateWordCount()
-      setWordCount(() => totalWords)
+      endGame()
     }
   }, [countdown, isTimeRunning])
 
