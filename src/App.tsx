@@ -3,11 +3,11 @@ import './App.css';
 
 
 function App() {
-  const [text, setState] = useState<string>("")
+  const [text, setText] = useState<string>("")
 
   const handleOnChange = (e : React.ChangeEvent<HTMLTextAreaElement>) => {
     const {value} = e.target
-    setState(value)
+    setText(value)
   }
 
 
