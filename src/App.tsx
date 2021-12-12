@@ -10,6 +10,11 @@ function App() {
     setText(value)
   }
 
+  const calculateWordCount = () => {
+    const total = text.trim().split(' ').filter(word => word !== "").length
+    console.log(total)
+  }
+
 
   return (
     <main>
@@ -17,7 +22,7 @@ function App() {
       <textarea value={text} onChange={handleOnChange}/>
       <h4>Time remaining: []</h4>
       <button>Start Game</button>
-      <h1>Word Count: ??</h1>
+      <h1 onClick={() => calculateWordCount()}>Word Count: ??</h1>
     </main>
   )
 }
