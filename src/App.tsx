@@ -1,4 +1,4 @@
-import React,{useState, useEffect} from 'react';
+import React,{useState, useEffect, useRef} from 'react';
 import './App.css';
 
 function App() {
@@ -9,6 +9,7 @@ function App() {
   const [countdown, setCountdown] = useState<number>(INITIAL_COUNT)
   const [isTimeRunning, setIsTimeRunning] = useState<boolean>(false)
   const [wordCount, setWordCount] = useState<number>(0)
+  const textBoxRef = useRef<HTMLTextAreaElement>(null)
 
   const handleOnChange = (e : React.ChangeEvent<HTMLTextAreaElement>) => {
     const {value} = e.target
@@ -26,6 +27,11 @@ function App() {
       setCountdown(INITIAL_COUNT)
       setWordCount(0)
       setText("")
+      
+      if(textBoxRef.current){
+        textBoxRef.current.disabled = false
+        textBoxRef.current.focus()
+      }
     }
   }
 
@@ -50,6 +56,7 @@ function App() {
     <main>
       <h1>How fast can you type?</h1>
       <textarea 
+        ref={textBoxRef}
         value={text} 
         onChange={handleOnChange}
         disabled={!isTimeRunning}
